@@ -543,10 +543,27 @@
 
   <div class="controls-row">
     <div class="controls-left">
+      <!-- فلتر موظفي المبيعات -->
       <div class="filter-group">
         <i class="fa-solid fa-user-tie"></i>
         <select id="salesPersonFilter">
           <option value="__all__">All sales people</option>
+        </select>
+      </div>
+
+      <!-- فلتر نوع العلاقة -->
+      <div class="filter-group" id="relationFilterGroup">
+        <i class="fa-solid fa-handshake"></i>
+        <select id="relationTypeFilter">
+          <option value="__all__">All relations</option>
+        </select>
+      </div>
+
+      <!-- فلتر نوع الإجراء -->
+      <div class="filter-group" id="actionFilterGroup">
+        <i class="fa-solid fa-bolt"></i>
+        <select id="actionTypeFilter">
+          <option value="__all__">All actions</option>
         </select>
       </div>
     </div>
@@ -582,6 +599,8 @@
     themeIcon: document.getElementById('themeIcon'),
     lastSync: document.getElementById('lastSync'),
     salesPersonFilter: document.getElementById('salesPersonFilter'),
+    relationTypeFilter: document.getElementById('relationTypeFilter'),
+    actionTypeFilter: document.getElementById('actionTypeFilter'),
     resultCount: document.getElementById('resultCount'),
     statTotal: document.getElementById('statTotal'),
     statDisplayed: document.getElementById('statDisplayed'),
@@ -668,6 +687,8 @@
       notes: detectColumn(['note','remark','comment']),
       status: detectColumn(['status','displayed','visible']),
       date: detectColumn(['date','visit date','timestamp']),
+      relationType: detectColumn(['relation type','relation','party type','entity type']),
+      actionType: detectColumn(['action type','contact type','communication method','visit or call'])
     };
   }
 
@@ -686,7 +707,7 @@
         <div class="state-box">
           <i class="fa-regular fa-folder-open" style="font-size:30px;color:var(--slate-500);"></i>
           <div class="state-title">No visits match this filter</div>
-          <div class="state-sub">Try a different sales person or refresh the data.</div>
+          <div class="state-sub">Try changing the filters or refresh the data.</div>
         </div>`;
       return;
     }
@@ -711,7 +732,7 @@
   function renderCell(header, value){
     if(!value) return '<span class="cell-empty">—</span>';
 
-    if(header === colMap.salesPerson || header === colMap.area){
+    if(header === colMap.salesPerson || header === colMap.area || header === colMap.relationType || header === colMap.actionType){
       const s = pillStyleFor(value);
       return `<span class="pill" style="background:${s.bg}; color:${s.fg};"><span class="pill-dot"></span>${escapeHtml(value)}</span>`;
     }
@@ -731,14 +752,30 @@
       .replace(/"/g,'&quot;');
   }
 
-  function populateFilter(){
+  function populateFilters(){
     if(!colMap.salesPerson){
       els.salesPersonFilter.closest('.filter-group').style.display = 'none';
-      return;
+    } else {
+      const people = [...new Set(rows.map(r => (r[colMap.salesPerson]||'').trim()).filter(Boolean))].sort();
+      els.salesPersonFilter.innerHTML = '<option value="__all__">All sales people</option>' +
+        people.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join('');
     }
-    const people = [...new Set(rows.map(r => (r[colMap.salesPerson]||'').trim()).filter(Boolean))].sort();
-    els.salesPersonFilter.innerHTML = '<option value="__all__">All sales people</option>' +
-      people.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join('');
+
+    if(!colMap.relationType){
+      document.getElementById('relationFilterGroup').style.display = 'none';
+    } else {
+      const relations = [...new Set(rows.map(r => (r[colMap.relationType]||'').trim()).filter(Boolean))].sort();
+      els.relationTypeFilter.innerHTML = '<option value="__all__">All relations</option>' +
+        relations.map(rel => `<option value="${escapeHtml(rel)}">${escapeHtml(rel)}</option>`).join('');
+    }
+
+    if(!colMap.actionType){
+      document.getElementById('actionFilterGroup').style.display = 'none';
+    } else {
+      const actions = [...new Set(rows.map(r => (r[colMap.actionType]||'').trim()).filter(Boolean))].sort();
+      els.actionTypeFilter.innerHTML = '<option value="__all__">All actions</option>' +
+        actions.map(act => `<option value="${escapeHtml(act)}">${escapeHtml(act)}</option>`).join('');
+    }
   }
 
   function updateStats(filtered){
@@ -746,9 +783,7 @@
 
     const displayedCount = filtered.filter(isDisplayedRow).length;
     els.statDisplayed.textContent = displayedCount.toLocaleString();
-    els.statDisplayedSub.textContent = els.salesPersonFilter.value === '__all__'
-      ? 'Rows currently shown'
-      : `Filtered to ${els.salesPersonFilter.value}`;
+    els.statDisplayedSub.textContent = 'Rows matching current filters';
 
     const reps = colMap.salesPerson
       ? new Set(rows.map(r => (r[colMap.salesPerson]||'').trim()).filter(Boolean)).size
@@ -764,10 +799,17 @@
   }
 
   function applyFilterAndRender(){
-    const selected = els.salesPersonFilter.value;
-    const filtered = (selected === '__all__' || !colMap.salesPerson)
-      ? rows
-      : rows.filter(r => (r[colMap.salesPerson]||'').trim() === selected);
+    const selectedRep = els.salesPersonFilter.value;
+    const selectedRelation = colMap.relationType ? els.relationTypeFilter.value : '__all__';
+    const selectedAction = colMap.actionType ? els.actionTypeFilter.value : '__all__';
+
+    const filtered = rows.filter(r => {
+      const matchRep = (selectedRep === '__all__' || !colMap.salesPerson) || (r[colMap.salesPerson]||'').trim() === selectedRep;
+      const matchRelation = (selectedRelation === '__all__' || !colMap.relationType) || (r[colMap.relationType]||'').trim() === selectedRelation;
+      const matchAction = (selectedAction === '__all__' || !colMap.actionType) || (r[colMap.actionType]||'').trim() === selectedAction;
+      
+      return matchRep && matchRelation && matchAction;
+    });
 
     updateStats(filtered);
     renderTable(filtered);
@@ -817,7 +859,7 @@
       });
 
       buildColMap();
-      populateFilter();
+      populateFilters();
       applyFilterAndRender();
 
       const now = new Date();
@@ -834,6 +876,8 @@
 
   els.refreshBtn.addEventListener('click', loadData);
   els.salesPersonFilter.addEventListener('change', applyFilterAndRender);
+  els.relationTypeFilter.addEventListener('change', applyFilterAndRender);
+  els.actionTypeFilter.addEventListener('change', applyFilterAndRender);
 
   loadData();
 })();
