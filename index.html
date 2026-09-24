@@ -89,6 +89,7 @@
     background: var(--bg-main);
     color: var(--text-color);
     font-family:'Inter', -apple-system, sans-serif;
+    font-size: 16px;
     min-height:100vh;
     -webkit-font-smoothing:antialiased;
     display:flex;
@@ -117,7 +118,7 @@
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    padding:16px 24px;
+    padding:18px 26px;
     background: var(--bg-header);
     border:1px solid var(--border-color);
     border-radius:var(--radius-lg);
@@ -134,8 +135,8 @@
   }
 
   .brand img.logo{
-    height:44px;
-    width:44px;
+    height:48px;
+    width:48px;
     object-fit:contain;
     border-radius:10px;
     background:rgba(255,255,255,0.04);
@@ -145,7 +146,7 @@
   .brand-text h1{
     font-family:'Poppins',sans-serif;
     font-weight:700;
-    font-size:20px;
+    font-size:22px;
     margin:0;
     color:var(--white);
     letter-spacing:0.2px;
@@ -153,7 +154,7 @@
 
   .brand-text p{
     margin:2px 0 0;
-    font-size:13px;
+    font-size:14px;
     color:var(--slate-300);
   }
 
@@ -167,16 +168,16 @@
     display:flex;
     align-items:center;
     gap:8px;
-    font-size:12.5px;
+    font-size:14px;
     color:var(--slate-300);
     background:var(--border-color);
     border:1px solid var(--border-color);
-    padding:8px 14px;
+    padding:9px 16px;
     border-radius:999px;
   }
 
   .sync-dot{
-    width:7px;height:7px;border-radius:50%;
+    width:8px;height:8px;border-radius:50%;
     background:var(--teal);
     box-shadow:0 0 0 3px var(--teal-dim);
   }
@@ -196,8 +197,8 @@
     border:none;
     font-family:'Inter',sans-serif;
     font-weight:600;
-    font-size:14px;
-    padding:11px 18px;
+    font-size:15px;
+    padding:12px 20px;
     border-radius:var(--radius-md);
     cursor:pointer;
     transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
@@ -209,7 +210,7 @@
     color: var(--slate-100);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-tight);
-    padding: 11px 14px;
+    padding: 12px 16px;
   }
 
   .refresh-btn:hover, .theme-toggle:hover{
@@ -231,7 +232,7 @@
     background: var(--card-bg);
     border:1px solid var(--border-color);
     border-radius:var(--radius-lg);
-    padding:18px 22px;
+    padding:20px 24px;
     overflow:hidden;
     box-shadow:var(--shadow-tight);
   }
@@ -252,23 +253,23 @@
   }
 
   .stat-icon{
-    width:38px;height:38px;
+    width:42px;height:42px;
     border-radius:10px;
     display:flex;align-items:center;justify-content:center;
     background:var(--accent-dim, var(--teal-dim));
     color:var(--accent-color, var(--teal));
-    font-size:16px;
+    font-size:18px;
   }
 
   .stat-label{
-    font-size:12.5px;
+    font-size:14px;
     color:var(--slate-300);
     font-weight:500;
   }
 
   .stat-value{
     font-family:'Poppins',sans-serif;
-    font-size:28px;
+    font-size:32px;
     font-weight:700;
     color:var(--white);
     line-height:1;
@@ -280,7 +281,7 @@
 
   .stat-sub{
     margin-top:6px;
-    font-size:12px;
+    font-size:13px;
     color:var(--slate-500);
   }
 
@@ -306,11 +307,11 @@
     gap:10px;
     background:var(--navy-800);
     border:1px solid var(--border-color);
-    padding:9px 14px;
+    padding:10px 16px;
     border-radius:var(--radius-md);
   }
 
-  .filter-group i{color:var(--slate-300);font-size:13px;}
+  .filter-group i{color:var(--slate-300);font-size:15px;}
 
   .filter-group select{
     appearance:none;
@@ -319,7 +320,7 @@
     border:none;
     color:var(--slate-100);
     font-family:'Inter',sans-serif;
-    font-size:13.5px;
+    font-size:15px;
     font-weight:500;
     padding-right:22px;
     cursor:pointer;
@@ -330,7 +331,7 @@
   .filter-group select option{background:var(--navy-800);color:var(--slate-100);}
 
   .result-count{
-    font-size:13px;
+    font-size:14px;
     color:var(--slate-500);
   }
 
@@ -356,7 +357,7 @@
   table{
     width:100%;
     border-collapse:collapse;
-    min-width:760px;
+    min-width:800px;
   }
 
   thead th{
@@ -365,17 +366,17 @@
     z-index:2;
     background: var(--thead-bg);
     text-align:left;
-    font-size:12px;
+    font-size:14.5px;
     font-weight:600;
     color:var(--slate-300);
-    padding:14px 18px;
+    padding:16px 20px;
     border-bottom:1px solid var(--border-color);
     white-space:nowrap;
   }
 
   tbody td{
-    padding:14px 18px;
-    font-size:13.5px;
+    padding:16px 20px;
+    font-size:16px;
     color:var(--slate-100);
     border-bottom:1px solid var(--border-color);
     vertical-align:middle;
@@ -388,27 +389,193 @@
   .pill{
     display:inline-flex;
     align-items:center;
-    gap:6px;
-    padding:5px 12px;
+    gap:8px;
+    padding:6px 14px;
     border-radius:999px;
-    font-size:12.5px;
+    font-size:14px;
     font-weight:600;
     white-space:nowrap;
   }
 
-  .pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .pill-dot{width:7px;height:7px;border-radius:50%;background:currentColor;}
 
   .notes-container {
-    min-width: 250px;
-    max-width: 400px;
+    min-width: 280px;
+    max-width: 450px;
   }
 
   .notes-text {
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
     color: var(--slate-300);
     word-break: break-word;
     white-space: pre-line;
+  }
+
+  .mom-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    background: var(--teal-dim);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(45,216,200,0.25);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .mom-link:hover {
+    background: var(--teal);
+    color: var(--navy-950);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(45,216,200,0.35);
+  }
+
+  /* ---------------------------------------------------- */
+  /* النافذة المنبثقة (Modal) - محاذاة النص من اليمين لليسار */
+  /* ---------------------------------------------------- */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(4, 8, 20, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-card {
+    background: var(--navy-900);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 92%;
+    max-width: 750px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.92);
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .modal-overlay.active .modal-card {
+    transform: scale(1);
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    background: var(--navy-800);
+    border-bottom: 1px solid var(--border-color);
+    direction: rtl; /* ضبط اتجاه الهيدر من اليمين لليسار */
+  }
+
+  .modal-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .modal-header h3 i {
+    color: var(--teal);
+  }
+
+  .modal-close {
+    background: transparent;
+    border: none;
+    color: var(--slate-300);
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .modal-close:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+  }
+
+  .modal-body {
+    padding: 30px;
+    max-height: 65vh;
+    overflow-y: auto;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--slate-100);
+    white-space: pre-wrap;
+    word-break: break-word;
+    direction: rtl; /* اتجاه كتابة اللغة العربية */
+    text-align: right; /* محاذاة النص من اليمين لليسار */
+  }
+
+  .modal-footer {
+    padding: 18px 28px;
+    background: var(--navy-800);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-start; /* لضبط الأزرار جهة اليمين مع الاتجاه العربي */
+    direction: rtl;
+    gap: 14px;
+  }
+
+  .modal-btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .modal-btn-copy {
+    background: var(--teal-dim);
+    color: var(--teal);
+    border: 1px solid rgba(45,216,200,0.2);
+  }
+
+  .modal-btn-copy:hover {
+    background: var(--teal);
+    color: var(--navy-950);
+  }
+
+  .modal-btn-close {
+    background: var(--navy-700);
+    color: var(--slate-100);
+  }
+
+  .modal-btn-close:hover {
+    background: var(--slate-500);
   }
 
   .cell-empty{color:var(--slate-500);font-style:italic;}
@@ -425,7 +592,7 @@
   }
 
   .spinner{
-    width:46px;height:46px;
+    width:48px;height:48px;
     border-radius:50%;
     border:3px solid rgba(45,216,200,0.15);
     border-top-color:var(--teal);
@@ -435,11 +602,11 @@
 
   .state-box .state-title{
     font-family:'Poppins',sans-serif;
-    font-size:15px;
+    font-size:17px;
     font-weight:600;
     color:var(--slate-100);
   }
-  .state-box .state-sub{font-size:13px;color:var(--slate-500);max-width:360px;}
+  .state-box .state-sub{font-size:14px;color:var(--slate-500);max-width:380px;}
 
   .error-box{
     display:flex;
@@ -451,18 +618,18 @@
     padding:18px 20px;
     margin:20px 0;
   }
-  .error-box i{color:var(--danger);font-size:18px;margin-top:2px;}
-  .error-box .error-title{font-weight:600;color:var(--white);font-size:14px;margin-bottom:4px;}
+  .error-box i{color:var(--danger);font-size:20px;margin-top:2px;}
+  .error-box .error-title{font-weight:600;color:var(--white);font-size:15px;margin-bottom:4px;}
   [data-theme="light"] .error-box .error-title { color: var(--slate-100); }
-  .error-box .error-detail{font-size:13px;color:var(--slate-300);line-height:1.5;}
+  .error-box .error-detail{font-size:14px;color:var(--slate-300);line-height:1.5;}
   .error-box button{
     margin-top:10px;
     background:transparent;
     border:1px solid rgba(239,106,106,0.4);
     color:var(--danger);
-    padding:7px 14px;
+    padding:8px 16px;
     border-radius:8px;
-    font-size:12.5px;
+    font-size:13.5px;
     font-weight:600;
     cursor:pointer;
   }
@@ -470,15 +637,15 @@
   footer{
     text-align:center;
     color:var(--slate-500);
-    font-size:12px;
+    font-size:13px;
     margin-top:auto;
-    padding-top: 10px;
+    padding-top: 12px;
   }
 
   @media (max-width:640px){
     header.top-bar{padding:16px;}
-    .brand-text h1{font-size:17px;}
-    .stat-value{font-size:24px;}
+    .brand-text h1{font-size:18px;}
+    .stat-value{font-size:26px;}
   }
 </style>
 </head>
@@ -488,7 +655,7 @@
 
   <header class="top-bar">
     <div class="brand">
-      <img src="logo.png" alt="Company logo" class="logo" onerror="this.src='https://via.placeholder.com/44?text=Logo'">
+      <img src="logo.png" alt="Company logo" class="logo" onerror="this.src='https://via.placeholder.com/48?text=Logo'">
       <div class="brand-text">
         <h1>Sales Visits Dashboard</h1>
         <p>Live field-visit tracking, synced from Google Sheets</p>
@@ -543,7 +710,6 @@
 
   <div class="controls-row">
     <div class="controls-left">
-      <!-- فلتر موظفي المبيعات -->
       <div class="filter-group">
         <i class="fa-solid fa-user-tie"></i>
         <select id="salesPersonFilter">
@@ -551,7 +717,13 @@
         </select>
       </div>
 
-      <!-- فلتر نوع العلاقة -->
+      <div class="filter-group" id="areaFilterGroup">
+        <i class="fa-solid fa-location-dot"></i>
+        <select id="areaFilter">
+          <option value="__all__">All areas</option>
+        </select>
+      </div>
+
       <div class="filter-group" id="relationFilterGroup">
         <i class="fa-solid fa-handshake"></i>
         <select id="relationTypeFilter">
@@ -559,7 +731,6 @@
         </select>
       </div>
 
-      <!-- فلتر نوع الإجراء -->
       <div class="filter-group" id="actionFilterGroup">
         <i class="fa-solid fa-bolt"></i>
         <select id="actionTypeFilter">
@@ -585,6 +756,21 @@
   <footer>Data source: Google Sheets (published CSV) · Refreshes on demand</footer>
 </div>
 
+<!-- Modal Pop-up Display -->
+<div class="modal-overlay" id="momModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3><i class="fa-solid fa-clipboard-list"></i> محضر الاجتماع (Minutes of Meeting)</h3>
+      <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-copy" id="modalCopyBtn"><i class="fa-solid fa-copy"></i> نسخ النص</button>
+      <button class="modal-btn modal-btn-close" id="modalCloseFooterBtn">إغلاق</button>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   const SPREADSHEET_ID = '1gThukwvMspln5wCpfOAFSJX9MAoxrGQG9eEFNCMJ1KA';
@@ -599,6 +785,7 @@
     themeIcon: document.getElementById('themeIcon'),
     lastSync: document.getElementById('lastSync'),
     salesPersonFilter: document.getElementById('salesPersonFilter'),
+    areaFilter: document.getElementById('areaFilter'),
     relationTypeFilter: document.getElementById('relationTypeFilter'),
     actionTypeFilter: document.getElementById('actionTypeFilter'),
     resultCount: document.getElementById('resultCount'),
@@ -607,13 +794,17 @@
     statDisplayedSub: document.getElementById('statDisplayedSub'),
     statReps: document.getElementById('statReps'),
     statAreas: document.getElementById('statAreas'),
+    momModal: document.getElementById('momModal'),
+    modalBody: document.getElementById('modalBody'),
+    modalCloseBtn: document.getElementById('modalCloseBtn'),
+    modalCloseFooterBtn: document.getElementById('modalCloseFooterBtn'),
+    modalCopyBtn: document.getElementById('modalCopyBtn')
   };
 
   let headers = [];
   let rows = [];
   let colMap = {};
 
-  // Theme management
   const currentTheme = localStorage.getItem('dashboard_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
@@ -628,6 +819,29 @@
   function updateThemeIcon(theme) {
     els.themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
+
+  function openMomModal(text) {
+    els.modalBody.textContent = text;
+    els.momModal.classList.add('active');
+  }
+
+  function closeMomModal() {
+    els.momModal.classList.remove('active');
+  }
+
+  els.modalCloseBtn.addEventListener('click', closeMomModal);
+  els.modalCloseFooterBtn.addEventListener('click', closeMomModal);
+  els.momModal.addEventListener('click', (e) => {
+    if(e.target === els.momModal) closeMomModal();
+  });
+
+  els.modalCopyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(els.modalBody.textContent).then(() => {
+      const origText = els.modalCopyBtn.innerHTML;
+      els.modalCopyBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
+      setTimeout(() => els.modalCopyBtn.innerHTML = origText, 2000);
+    });
+  });
 
   const PILL_PALETTE = [
     { bg:'rgba(45,216,200,0.14)', fg:'#2dd8c8' },
@@ -688,7 +902,8 @@
       status: detectColumn(['status','displayed','visible']),
       date: detectColumn(['date','visit date','timestamp']),
       relationType: detectColumn(['relation type','relation','party type','entity type']),
-      actionType: detectColumn(['action type','contact type','communication method','visit or call'])
+      actionType: detectColumn(['action type','contact type','communication method','visit or call']),
+      minutesOfMeeting: detectColumn(['minutes of meeting', 'mom', 'meeting minutes', 'minutes'])
     };
   }
 
@@ -705,7 +920,7 @@
     if(!data.length){
       els.tableScroll.innerHTML = `
         <div class="state-box">
-          <i class="fa-regular fa-folder-open" style="font-size:30px;color:var(--slate-500);"></i>
+          <i class="fa-regular fa-folder-open" style="font-size:36px;color:var(--slate-500);"></i>
           <div class="state-title">No visits match this filter</div>
           <div class="state-sub">Try changing the filters or refresh the data.</div>
         </div>`;
@@ -727,10 +942,22 @@
 
     html += '</tbody></table>';
     els.tableScroll.innerHTML = html;
+
+    document.querySelectorAll('.mom-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const fullContent = link.getAttribute('data-content');
+        openMomModal(fullContent);
+      });
+    });
   }
 
   function renderCell(header, value){
     if(!value) return '<span class="cell-empty">—</span>';
+
+    if(header === colMap.minutesOfMeeting) {
+      return `<a href="#" class="mom-link" data-content="${escapeHtml(value)}"><i class="fa-solid fa-arrow-up-right-from-square"></i> click here</a>`;
+    }
 
     if(header === colMap.salesPerson || header === colMap.area || header === colMap.relationType || header === colMap.actionType){
       const s = pillStyleFor(value);
@@ -759,6 +986,14 @@
       const people = [...new Set(rows.map(r => (r[colMap.salesPerson]||'').trim()).filter(Boolean))].sort();
       els.salesPersonFilter.innerHTML = '<option value="__all__">All sales people</option>' +
         people.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join('');
+    }
+
+    if(!colMap.area){
+      document.getElementById('areaFilterGroup').style.display = 'none';
+    } else {
+      const areas = [...new Set(rows.map(r => (r[colMap.area]||'').trim()).filter(Boolean))].sort();
+      els.areaFilter.innerHTML = '<option value="__all__">All areas</option>' +
+        areas.map(a => `<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('');
     }
 
     if(!colMap.relationType){
@@ -800,15 +1035,17 @@
 
   function applyFilterAndRender(){
     const selectedRep = els.salesPersonFilter.value;
+    const selectedArea = colMap.area ? els.areaFilter.value : '__all__';
     const selectedRelation = colMap.relationType ? els.relationTypeFilter.value : '__all__';
     const selectedAction = colMap.actionType ? els.actionTypeFilter.value : '__all__';
 
     const filtered = rows.filter(r => {
       const matchRep = (selectedRep === '__all__' || !colMap.salesPerson) || (r[colMap.salesPerson]||'').trim() === selectedRep;
+      const matchArea = (selectedArea === '__all__' || !colMap.area) || (r[colMap.area]||'').trim() === selectedArea;
       const matchRelation = (selectedRelation === '__all__' || !colMap.relationType) || (r[colMap.relationType]||'').trim() === selectedRelation;
       const matchAction = (selectedAction === '__all__' || !colMap.actionType) || (r[colMap.actionType]||'').trim() === selectedAction;
       
-      return matchRep && matchRelation && matchAction;
+      return matchRep && matchArea && matchRelation && matchAction;
     });
 
     updateStats(filtered);
@@ -876,6 +1113,7 @@
 
   els.refreshBtn.addEventListener('click', loadData);
   els.salesPersonFilter.addEventListener('change', applyFilterAndRender);
+  els.areaFilter.addEventListener('change', applyFilterAndRender);
   els.relationTypeFilter.addEventListener('change', applyFilterAndRender);
   els.actionTypeFilter.addEventListener('change', applyFilterAndRender);
 
