@@ -436,7 +436,7 @@
   }
 
   /* ---------------------------------------------------- */
-  /* النافذة المنبثقة (Modal) - محاذاة النص من اليمين لليسار */
+  /* النافذة المنبثقة (Modal) */
   /* ---------------------------------------------------- */
   .modal-overlay {
     position: fixed;
@@ -485,21 +485,17 @@
     padding: 22px 28px;
     background: var(--navy-800);
     border-bottom: 1px solid var(--border-color);
-    direction: rtl; /* ضبط اتجاه الهيدر من اليمين لليسار */
+    direction: ltr; /* اسم العمود يكون إنجليزي/من اليسار */
   }
 
   .modal-header h3 {
     margin: 0;
-    font-size: 22px;
-    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
     color: var(--white);
     display: flex;
     align-items: center;
     gap: 12px;
-  }
-
-  .modal-header h3 i {
-    color: var(--teal);
   }
 
   .modal-close {
@@ -522,33 +518,35 @@
     color: var(--white);
   }
 
+  /* المحتوى الداخلي فقط باللغة العربية ومن اليمين لليسار */
   .modal-body {
     padding: 30px;
     max-height: 65vh;
     overflow-y: auto;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.8;
     color: var(--slate-100);
     white-space: pre-wrap;
     word-break: break-word;
-    direction: rtl; /* اتجاه كتابة اللغة العربية */
-    text-align: right; /* محاذاة النص من اليمين لليسار */
+    direction: rtl; 
+    text-align: right; 
   }
 
+  /* الأزرار بالإنجليزية وعلى الجهة اليسرى */
   .modal-footer {
     padding: 18px 28px;
     background: var(--navy-800);
     border-top: 1px solid var(--border-color);
     display: flex;
-    justify-content: flex-start; /* لضبط الأزرار جهة اليمين مع الاتجاه العربي */
-    direction: rtl;
+    justify-content: flex-start; 
+    direction: ltr;
     gap: 14px;
   }
 
   .modal-btn {
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: var(--radius-sm);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     border: none;
@@ -556,26 +554,28 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-family: 'Inter', sans-serif;
   }
 
   .modal-btn-copy {
-    background: var(--teal-dim);
-    color: var(--teal);
-    border: 1px solid rgba(45,216,200,0.2);
+    background: var(--teal);
+    color: var(--navy-950);
   }
 
   .modal-btn-copy:hover {
-    background: var(--teal);
-    color: var(--navy-950);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(45,216,200,0.35);
   }
 
   .modal-btn-close {
     background: var(--navy-700);
     color: var(--slate-100);
+    border: 1px solid var(--border-color);
   }
 
   .modal-btn-close:hover {
     background: var(--slate-500);
+    color: var(--white);
   }
 
   .cell-empty{color:var(--slate-500);font-style:italic;}
@@ -760,13 +760,13 @@
 <div class="modal-overlay" id="momModal">
   <div class="modal-card">
     <div class="modal-header">
-      <h3><i class="fa-solid fa-clipboard-list"></i> محضر الاجتماع (Minutes of Meeting)</h3>
+      <h3 id="modalTitle">Header Name</h3>
       <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer">
-      <button class="modal-btn modal-btn-copy" id="modalCopyBtn"><i class="fa-solid fa-copy"></i> نسخ النص</button>
-      <button class="modal-btn modal-btn-close" id="modalCloseFooterBtn">إغلاق</button>
+      <button class="modal-btn modal-btn-copy" id="modalCopyBtn"><i class="fa-regular fa-copy"></i> Copy Text</button>
+      <button class="modal-btn modal-btn-close" id="modalCloseFooterBtn">Close</button>
     </div>
   </div>
 </div>
@@ -795,6 +795,7 @@
     statReps: document.getElementById('statReps'),
     statAreas: document.getElementById('statAreas'),
     momModal: document.getElementById('momModal'),
+    modalTitle: document.getElementById('modalTitle'),
     modalBody: document.getElementById('modalBody'),
     modalCloseBtn: document.getElementById('modalCloseBtn'),
     modalCloseFooterBtn: document.getElementById('modalCloseFooterBtn'),
@@ -821,6 +822,8 @@
   }
 
   function openMomModal(text) {
+    // إظهار اسم العمود الأصلي فوق فقط
+    els.modalTitle.textContent = colMap.minutesOfMeeting || "Minutes of Meeting";
     els.modalBody.textContent = text;
     els.momModal.classList.add('active');
   }
@@ -838,7 +841,7 @@
   els.modalCopyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(els.modalBody.textContent).then(() => {
       const origText = els.modalCopyBtn.innerHTML;
-      els.modalCopyBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
+      els.modalCopyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
       setTimeout(() => els.modalCopyBtn.innerHTML = origText, 2000);
     });
   });
